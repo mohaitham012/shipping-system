@@ -37,7 +37,6 @@ const Profile = () => {
         headers: {token }
     })
     .then((response)=>{
-      console.log(response.data);
       if (response.data.success) {
         setCopyRes(response.data.user)
       }
@@ -51,7 +50,6 @@ const Profile = () => {
         headers: { token }
     })
     .then((response)=>{
-      console.log(response.data)
       setCopyRes(response.data.user)
     })
     .catch((error)=>{
@@ -76,7 +74,6 @@ const Profile = () => {
         {headers:{token}}
       )
       .then((response)=>{
-        console.log(response.data)
         toast.success(response.data.msg)
         if (response.data.success) {
           setShipDetails({
@@ -99,7 +96,6 @@ const Profile = () => {
         {headers:{token}}
       )
       .then((response)=>{
-        console.log(response.data)
         toast.success(response.data.msg)
         if (response.data.success) {
           setShipDetails({

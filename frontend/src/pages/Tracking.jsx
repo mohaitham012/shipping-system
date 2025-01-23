@@ -4,7 +4,6 @@ import Lottie from "lottie-react";
 import axios from "axios";
 import animation from "../../public/assets/Animation - 1734640899011.json";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { ShopContext } from "../context/ShopContextProvider";
 
 const Tracking = () => {
@@ -15,7 +14,6 @@ const Tracking = () => {
   const [shipData, setShipData] = useState(null);
   console.log(shipData);
 
-  const navigate = useNavigate();
   const { backendUrl, token } = useContext(ShopContext);
 
   const handleSubmit = (e) => {
@@ -28,7 +26,6 @@ const Tracking = () => {
           headers: { token },
         })
         .then((response) => {
-          console.log(response.data);
           if (response.data.success) {
             setShipData(response.data.ship);
             setFind(true);
@@ -46,7 +43,6 @@ const Tracking = () => {
           headers: { token },
         })
         .then((response) => {
-          console.log(response.data);
           if (response.data.success) {
             setShipData(response.data.ship);
             setFind(true);
@@ -58,21 +54,6 @@ const Tracking = () => {
           console.log(error.message);
         });
     }
-  };
-
-  const shippmentInfo = {
-    id: "12345678",
-    status: "in Transit",
-    estimated: "March 25, 2024",
-    from: "New York, USA",
-    to: "Los Angeles",
-    date: "March 20, 2024",
-    transit: "Chicago",
-    transitDate: "March 21, 2024",
-    arrived: "Texas",
-    arrivedDate: "March 22, 2024",
-    courier: "Mark Welson",
-    pickedDate: "March 27, 2024",
   };
 
   return (
